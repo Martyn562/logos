@@ -12,12 +12,13 @@
 <body>
 
     <div class="alert alert-success" id="success-registration" role="alert"></div>
+    <div class="alert alert-success" id="success-logined" role="alert"></div>
 
     <div class="page-form registration-form">
         <form class="form-field" onsubmit="submitRegistrationForm(event)">
             <h1 class="text welcome-text">Register</h1>
             <p class="text description-text">Create your own account. It's only take a minute</p>
-
+                <!--onkeydown="foo(event)"-->
             <input type="firstName" placeholder="First name" class="input-field firstName-input" id="firstName">
 
             <input type="lastName" placeholder="Second name" class="input-field lastName-input" id="lastName"> <br>
@@ -46,13 +47,13 @@
     </div>
 
     <div class="page-form login-form">
-        <form class="form-field" onsubmit="submitForm(event)">
+        <form class="form-field" onsubmit="submitLoginForm(event)">
             <h1 class="text welcome-text">Log In</h1>
             <p class="text description-text">Please Login</p>
             
             <input type="email" placeholder="E-mail" class="input-field email-input" id="logIn-email"> <br>
 
-            <input type="password" placeholder="Password class" class="input-field pass-input" id="LogIn-password"> <br>
+            <input type="password" placeholder="Password class" class="input-field pass-input" id="logIn-password"> <br>
             
             <p class="error-message incorrectPassword">Your e-mail or password data is incorrect</p>
 

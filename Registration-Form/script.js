@@ -37,7 +37,7 @@ const submitRegistrationForm = (event) =>{
 }
 
 const passCheck = (password, confirmPassword) =>{   //перевіряти чи не пусті поля
-    return password === confirmPassword ? true : false;
+    return (password && confirmPassword && password === confirmPassword) ? true : false;
 }
 
 const getPeopleInfo = () => {
@@ -56,36 +56,36 @@ const submitLoginForm = (event) =>{
     const personEmail = document.getElementById('logIn-email').value;
     const personPassword = document.getElementById('logIn-password').value;
 
-    const isExist = peopleInfo.includes(person);
+    const isExist = checkPerson(personEmail, personPassword);
 
-    checkPerson();
+    if(isExist){
+        document.querySelector('#success-logined').innerHTML="Congratulation! You are successfully registered!";
 
-        const isSuccessfullyLogined = document.querySelector('.checkbox-input').checked && passCheck(person.password, person.confirmPassword);
+        setTimeout(() =>{
+            document.querySelector('#success-logined').style.display='none';
+        }, 5000);
 
-        if(isSuccessfullyLogined){
-            document.querySelector('#success-registration').innerHTML="Congratulation! You are successfully registered!";
-
-            setTimeout(() =>{
-                document.querySelector('#success-registration').style.display='none';
-            }, 5000);
-
-            document.querySelector('#success-registration').style.display='block';
-            peopleInfo.push(person);
-        }
-
-        document.querySelector('.checkPolicy').style.display = document.querySelector('.checkbox-input').checked ? 'none' : 'block';
-        
-        document.querySelector('.confirmPass').style.display = passCheck(person.password, person.confirmPassword) ? 'none' : 'block'; 
-        
-        {isSuccessfullyLogined &&
-            showWelcomePage();
-        }
+        document.querySelector('#success-logined').style.display='block';
+    }
+    
+    document.querySelector('.incorrectPassword').style.display = checkPerson(personEmail, personPassword) ? 'none' : 'block'; 
+    
+    {isExist &&
+        showWelcomePage();
+    }
 }
 
-const checkPerson = (i, personEmail, personPassword) => {
+const checkPerson = (personEmail, personPassword) => {
 
+    return peopleInfo.map((person) => {
+        return person.email == personEmail && person.password == personPassword;
+    })[0];
 }
 const showWelcomePage = () => {
     document.querySelector('.login-form').style.display = 'none';
     document.querySelector('.welcome-page').style.display = 'block';
+}
+
+const foo = (event) =>{
+    console.log(event.target.value);
 }
