@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="radio-btns">
+        <input type="radio" name="radio" id="first" onchange="foo()" checked>
+        <input type="radio" name="radio" id="second" onchange="foo()">
+        <input type="radio" name="radio" id="third" onchange="foo()">
+    </div>
+
+    <div class="wrapper">
+        <div class="block-left">
+            <div class="block-left--item first"></div>
+            <div class="block-left--item second"></div>
+        </div>
+        <div class="block-right">
+            <div class="block-right--item third"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
